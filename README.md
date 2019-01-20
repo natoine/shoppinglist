@@ -6,3 +6,6 @@ C'est aussi l'occasion pour nous d'apprendre/de pratiquer le développement d'un
 Les rêves les plus fous sont permis pour la suite, mais d'abord on fait un MVP, merci.
 
 A visée pédagogique, on fait d'abord une version du serveur qui rend des pages HTML. Ensuite on fera une version serveur API web avec un code client qui appelle l'API.
+
+## test de POST /items with CURL
+curl --header "Content-Type: application/json"   --request POST   --data '{"label":"patate","quantity":"10"}'   http://localhost:3000/items

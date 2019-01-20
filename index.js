@@ -1,6 +1,9 @@
 var express = require('express')
 var app = express()
 
+const bodyParser   = require('body-parser')
+app.use(bodyParser.json())
+
 const MongoClient = require('mongodb').MongoClient
 // Connection URL
 const url = 'mongodb://localhost:27017'
@@ -8,6 +11,7 @@ const url = 'mongodb://localhost:27017'
 const dbName = 'shoppinglist'
 
 
+/*
 MongoClient.connect(url, function(err, client) {
     if (err) throw err
     console.log("Connected successfully to server")
@@ -21,7 +25,7 @@ MongoClient.connect(url, function(err, client) {
     
     //client.close()
   })
-
+*/
 
 app.get('/', 
     function (request, response) 
@@ -34,6 +38,15 @@ app.get('/:truc', function (request, response) {
     
     response.send('Hello '+ request.params.truc + ' !')
   })
+
+app.post('/items', function(request, response) {
+    const body = request.body
+    console.log('body :', body)
+    console.log("body.keys : " + Object.keys(body))
+    response.end()
+})
+
+
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
